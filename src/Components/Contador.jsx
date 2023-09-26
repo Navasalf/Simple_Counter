@@ -3,14 +3,19 @@ import React, { useState, useEffect } from 'react';
 export function SecondsCounter() {
     const [counter, setCounter] = useState(0);
 
+    if (counter === 10) {
+        alert('¡Se agoto el tiempo!');
+    };
+    if (counter === 20) {
+        alert ('¡Se super agoto el tiempo!')
+    }
+
+    // sin el useEffect la funcion no se ejecuta correctamente.
     useEffect(() => {
         const interval = setInterval(() => {
-            setCounter((prevCounter) => prevCounter + 1);    
+            setCounter((prevCounter) => prevCounter + 1);
         }, 1000);
-
-        if (counter === 9) {
-            alert('¡El contador ha llegado a 10!');
-        }
+        
 
         return () => clearInterval(interval);
     }, []);
@@ -36,9 +41,5 @@ export function SecondsCounter() {
 };
 
 console.log(SecondsCounter)
-
-
-
-
 
 
